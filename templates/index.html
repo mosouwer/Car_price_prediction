@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Jamil's Banking Solution</title>
+  <title>Car Price Predictor</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -92,7 +92,7 @@
     <h3>Powered By CarDekho.com Developed by M.Jamil</h3>
     
     <div class="col-sm-6" >
-   <img class="img-responsive img-rounded" src="car_dekho_bg.PNG" height="500" width="600" style="display: inline;margin-top: 40px;padding-bottom: 40px; padding-right: 20px">
+   <img class="img-responsive img-rounded" src="https://www.linkpicture.com/q/car_dekho_bg.png" height="500" width="600" style="display: inline;margin-top: 40px;padding-bottom: 40px; padding-right: 20px">
     </div>
      <div class="col-sm-6" style="border-left: 2px solid black" >
     
@@ -131,14 +131,21 @@
 
 
         </form>
+        <h3 id="demo"> {{prediction_text}}</h3>
+       
+         
     </div>
     </div>
     <div class="text-center" style="margin-top: 10px;">
    
     </div>
     <script>
-      function myFunction() {
-        alert("{{ prediction_text }}");
-      } </script>
+      window.onload = function() {
+    // similar behavior as an HTTP redirect
+    window.location.replace("https://selling-car-price-prediction.herokuapp.com/");
+}
+    </script>
+
 </body>
+
 </html>
