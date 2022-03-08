@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Jamil's Banking Solution</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .navbar{
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        
+        
+        #loginButton{
+            padding: 10px 20px;
+            background: black;
+            border: 0;
+            color: white;
+            border-radius: 10px;
+            
+        }
+        
+        .inputfield{
+            padding: 10px 100px;
+            border:0;
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-radius: 20px;
+            
+        }
+        input:focus{
+            outline:none;
+        }
+
+        
+        input[type=number], select {
+                width: 100%;
+                padding: 8px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;     
+               
+            }
+
+            button[type=submit] {
+                width: 100%;
+                background-color: black;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                opacity: 200%;
+            }
+
+            button[type=submit]:hover {
+                background-color: black;
+                opacity: 80%;
+            }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a style="color: white;font-family: 'Dosis', sans-serif; font-size: 30px;" class="navbar-brand" href="#">Car Price Predictor </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+    
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container text-center">
+    <h3>Powered By CarDekho.com Developed by M.Jamil</h3>
+    
+    <div class="col-sm-6" >
+   <img class="img-responsive img-rounded" src="car_dekho_bg.PNG" height="500" width="600" style="display: inline;margin-top: 40px;padding-bottom: 40px; padding-right: 20px">
+    </div>
+     <div class="col-sm-6" style="border-left: 2px solid black" >
+    
+        <form action="{{ url_for('predict')}}" method="post">
+    
+          
+            <input id="first" name="Year" type="number" placeholder="Year">
+            
+          
+            <input id="second" name="Present_Price" required="required" type="number" placeholder="Showroom Price in lakhs">
+            
+           
+            <input id="third" name="Kms_Driven" required="required", type="number" placeholder="KM Driven"> <br>
+            
+            
+            <input id="fourth" name="Owner" required="required", type="number" placeholder="Previous Owner (0,1 or 2)">
+            
+           <select name="Fuel_Type_Petrol" id="fuel" required="required" >
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Diesel">CNG</option>
+            </select>
+           <select name="Seller_Type_Individual" id="resea" required="required">
+                <option value="Dealer">Dealer</option>
+                <option value="Individual">Individual</option>
+            </select>
+           <select name="Transmission_Mannual" id="research" required="required">
+                <option value="Mannual">Manual Car</option>
+                <option value="Automatic">Automatic Car</option>
+            </select>
+            <br><br><button id="sub" onclick="myFunction()" type="submit"> Calculate Selling Price</button>
+           
+            <br>
+
+
+
+
+        </form>
+    </div>
+    </div>
+    <div class="text-center" style="margin-top: 10px;">
+   
+    </div>
+    <script>
+      function myFunction() {
+        alert("{{ prediction_text }}");
+      } </script>
+</body>
+</html>
